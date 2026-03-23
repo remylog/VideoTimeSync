@@ -18,7 +18,7 @@ class CTkDnD(ctk.CTk, TkinterDnD.DnDWrapper):
 class VideoSyncApp(CTkDnD):
     def __init__(self):
         super().__init__()
-        self.title("Video Timestamp Sync - 一括処理版")
+        self.title("Video Timestamp Sync")
         self.geometry("800x720")
         self.minsize(750, 600)
         
@@ -30,7 +30,7 @@ class VideoSyncApp(CTkDnD):
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(2, weight=1)
 
-        self.label_head = ctk.CTkLabel(self, text="動画日時同期ツール (一括変換)", font=self.header_font)
+        self.label_head = ctk.CTkLabel(self, text="動画日時同期ツール", font=self.header_font)
         self.label_head.grid(row=0, column=0, padx=20, pady=20, sticky="w")
 
         self.frame_controls = ctk.CTkFrame(self, fg_color="transparent")
