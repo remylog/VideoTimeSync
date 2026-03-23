@@ -28,8 +28,10 @@ jobs:
       - name: Build macOS App with PyInstaller
         run: |
           # アプリをビルド。名前は VideoTimeSync とします
-          pyinstaller --noconsole --onefile --windowed --name "VideoTimeSync" main.py
-
+          pyinstaller --noconsole --onefile --windowed --name "VideoTimeSync" \
+                --collect-all tkinterdnd2 \
+                main.py
+                
       - name: Compress App to ZIP
         run: |
           # macOSの実行権限を保持したままZIP化
