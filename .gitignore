@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+#配布物
+dist/
+build/
+*.spec
+
+# macOS
+.DS_Store
