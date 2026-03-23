@@ -3,7 +3,9 @@ customtkinter==5.2.2
 darkdetect==0.8.0
 macholib==1.16.4
 packaging==26.0
+pillow==12.0.0
 pyinstaller==6.19.0
 pyinstaller-hooks-contrib==2026.3
 setuptools==82.0.1
 tkinterdnd2==0.4.3
+typing_extensions==4.15.0
