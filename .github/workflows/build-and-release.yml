@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-release:
-    runs-on: macos-14 # Appleシリコン環境でビルド
+    runs-on: macos-15 # Appleシリコン環境でビルド（XcodeGenが作るプロジェクト形式にはXcode 16以降が必要）
     permissions:
       contents: write # リリースを作成するために書き込み権限が必要
 
