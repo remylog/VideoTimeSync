@@ -1,0 +1,46 @@
+# XcodeGen の設定ファイル。`xcodegen generate` で VideoTimeSync.xcodeproj を作る。
+name: VideoTimeSync
+
+options:
+  bundleIdPrefix: com.remylog
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    ENABLE_HARDENED_RUNTIME: YES
+    # アドホック署名（Developer ID なしでも手元で動く）。公証する場合は Developer ID に差し替える
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"
+
+targets:
+  VideoTimeSync:
+    type: application
+    platform: macOS
+    sources:
+      - path: VideoTimeSync
+      # scripts/fetch-exiftool.sh が作る同梱用exiftool。無くてもビルドは通る（Homebrew版を使う）
+      - path: Resources/exiftool
+        type: folder
+        optional: true
+    info:
+      path: Config/Info.plist
+      properties:
+        CFBundleDisplayName: 動画日時同期ツール
+        CFBundleName: VideoTimeSync
+        LSMinimumSystemVersion: "14.0"
+        LSApplicationCategoryType: public.app-category.video
+        NSHumanReadableCopyright: "Copyright © remylog labs"
+    entitlements:
+      path: Config/VideoTimeSync.entitlements
+      properties:
+        # 外部ボリュームの動画を自由に読み書きするため、サンドボックスは無効（GitHub配布前提）
+        com.apple.security.app-sandbox: false
+    settings:
+      base:
+        PRODUCT_NAME: VideoTimeSync
+        PRODUCT_BUNDLE_IDENTIFIER: com.remylog.VideoTimeSync

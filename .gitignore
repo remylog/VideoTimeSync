@@ -1,14 +1,23 @@
-# Python
+# Python（Legacy版）
 __pycache__/
 *.py[cod]
 *$py.class
 .venv/
 venv/
 
-#配布物
+# 配布物・ビルド成果物
 dist/
 build/
 *.spec
+DerivedData/
+
+# Xcode（project.yml から xcodegen で再生成する）
+*.xcodeproj
+xcuserdata/
+Config/
+
+# 同梱用exiftool（scripts/fetch-exiftool.sh で取得する）
+Resources/
 
 # macOS
 .DS_Store
